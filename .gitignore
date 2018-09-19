@@ -1,5 +1,6 @@
 ## PDF files; Build results
 *.pdf
+*.code-workspace
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
