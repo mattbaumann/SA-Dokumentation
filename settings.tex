@@ -38,8 +38,8 @@
 %% Header and Footer %%
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\sectionmark}[1]{\markright{#1}} %entfernt nummer vor section
-\renewcommand{\subsectionmark}[1]{}
+% \renewcommand{\sectionmark}[1]{\markright{#1}} %entfernt nummer vor section
+% \renewcommand{\subsectionmark}[1]{}
 
 \pagestyle{scrheadings}
 
@@ -86,10 +86,21 @@
     % \lefoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
     % \lofoot{\today}
     
-    \recalctypearea % Needed to recalculate all lengths
+    % \recalctypearea % Needed to recalculate all lengths
 }
 
 \makeatother
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Remove TOF, TOT Titles
+%%%%%%%%%%%%%%%%%%%%%
+\addto\captionsenglish{
+   \renewcommand\listfigurename{}
+}
+
+\addto\captionsenglish{
+    \renewcommand\listtablename{}
+}
 
 % \setkomafont{pageheadfoot}{\small}
 
@@ -97,25 +108,25 @@
 %% Title
 %%%%%%%%%%%%%%%%%%%%%
 
-\RedeclareSectionCommand[
-    beforeskip=-\baselineskip,
-    afterskip=.5\baselineskip,
-    indent=1pt]{section}
+% \RedeclareSectionCommand[
+%     beforeskip=-\baselineskip,
+%     afterskip=.5\baselineskip,
+%     indent=1pt]{section}
 
-\RedeclareSectionCommand[
-    beforeskip=-\baselineskip,
-    afterskip=.5\baselineskip,
-    indent=1pt]{subsection}
+% \RedeclareSectionCommand[
+%     beforeskip=-\baselineskip,
+%     afterskip=.5\baselineskip,
+%     indent=1pt]{subsection}
 
-\RedeclareSectionCommand[
-    beforeskip=-\baselineskip,
-    afterskip=.5\baselineskip,
-    indent=1pt]{subsubsection}
+% \RedeclareSectionCommand[
+%     beforeskip=-\baselineskip,
+%     afterskip=.5\baselineskip,
+%     indent=1pt]{subsubsection}
 
-\RedeclareSectionCommand[
-    beforeskip=-\baselineskip,
-    afterskip=.5\baselineskip,
-    indent=1pt]{paragraph}
+% \RedeclareSectionCommand[
+%     beforeskip=-\baselineskip,
+%     afterskip=.5\baselineskip,
+%     indent=1pt]{paragraph}
 
 %%%%%%%%%%%%%%%%%%%%%
 %% Index
