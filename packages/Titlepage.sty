@@ -1,0 +1,67 @@
+%
+% Custom title producing file
+%
+% All style defined herein will be applied globally.
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{packages/titlepage}[2018/09/23 Custom maketitle definition]
+
+\RequirePackage{changepage}
+\RequirePackage[export]{adjustbox}
+\RequirePackage{graphics}
+
+\newcommand*{\@department}{}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+
+\newcommand*{\@advisor}{}
+\newcommand{\advisor}[1]{\gdef\@advisor{#1}}
+
+\newcommand*{\@partner}{}
+\newcommand{\partner}[1]{\gdef\@partner{#1}}
+
+\newcommand*{\@examiner}{}
+\newcommand{\examiner}[1]{\gdef\@examiner{#1}}
+
+\AtBeginDocument{
+    \renewcommand*{\maketitle}{
+        \begin{titlepage}
+
+            \pagestyle{empty}
+
+            \begin{adjustwidth}{0cm}{-5cm} { \raggedleft \LogoHSR } \end{adjustwidth}
+
+            \centering
+            \vspace{5cm}
+
+            { \usekomafont{title} \Huge \@title  }\\\vspace{0.25cm}
+            { \usekomafont{subtitle} \Large \@subject }\\\vspace{0.25cm}
+            { \usekomafont{title} \@department }\\
+            \raggedright\vfill\Large
+            
+            \ifx\@author\@empty
+            \else
+                \textsf{\textbf{Author(s):}}\\
+                \textsf{\@author}\\
+            \fi    
+            \ifx\@advisor\@empty
+            \else
+                \textsf{\textbf{Advisor:}}\\
+                \textsf{\@advisor}\\
+            \fi
+            \ifx\@partner\@empty
+            \else
+                \textsf{\textbf{Project Partner:}}\\
+                \textsf{\@partner}\\
+            \fi
+            \ifx\@examiner\@empty
+            \else
+                \textsf{\textbf{Examiner:}}\\
+                \textsf{\@examiner}\\
+            \fi
+            \textsf{\textbf{Date:}}\\
+            \textsf{\today}\\
+
+            \pagestyle{empty}
+        \end{titlepage}
+    }
+}
