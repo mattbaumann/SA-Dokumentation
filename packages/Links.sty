@@ -1,0 +1,26 @@
+%
+% Definition of the complex web-link managment
+%
+% All style defined herein will be applied globally.
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{packages/Links}[2018/09/23 Custom maketitle definition]
+
+\RequirePackage{hyperref}
+\RequirePackage{bookmark}
+\RequirePackage{xparse}
+\RequirePackage{xifthen}
+
+\newcommand*{\@print}{false}
+\newcommand{\print}[1]{\gdef\@print{#1}}
+
+
+\ifx \@print true
+    \hypersetup{hidelinks, colorlinks = false, linkcolor = black, citecolor = black, filecolor = black, urlcolor = black}
+\else
+    \hypersetup{colorlinks, linkcolor=red, citecolor=green, filecolor=magenta, urlcolor=cyan}
+\fi
+
+% \link[text representation]{url}
+\newcommand{\link}[2][]{
+    \ifthenelse{\not\isempty{#1}}{ \href{#2}{#1}\footnote{#2} }{ \href{#2}{#2}\footnote{#2} }
+}
