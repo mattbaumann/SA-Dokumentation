@@ -1,27 +1,88 @@
- % !TEX program = xelatex
+% !TEX program = xelatex
+% !TeX encoding = utf8
+% !TeX spellcheck = en_US
+% !BIB program = biber
 
 \documentclass{scrbook}
 
+\usepackage{scrlayer-scrpage}
+
 \usepackage{subfiles}
 \usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{parskip}
+\usepackage[backend=biber, style=ieee, defernumbers=true]{biblatex} % do not use biber along TexWorks
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{pageslts}
+\usepackage{imakeidx}
+\usepackage{mathtools}
+\usepackage{amsmath, amscd, amssymb, amsfonts, amsthm}
+\usepackage{textcomp}
+\usepackage{txfonts}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{environ}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{gensymb}
+\usepackage{listings}
+\usepackage{todonotes}
 
-\include{protocols/dependencies}
-\include{problemstatement/packages}
-\include{appendix/packages}
+\usepackage{packages/Titlepage}
+\usepackage{packages/DefaultColors}
+\usepackage{packages/HSRColors}
+\usepackage{packages/Links}
 
+\include{sections/protocols/dependencies}
+\include{sections/requirements/packages}
+\include{sections/appendix/packages}
 
-\title{Micro-Frontends \\ \small SA Documentation}
+\include{settings}
+\include{codelayout}
+
+\addbibresource{references}
+
+\newcommand{\LogoHSR}{\includegraphics[width=0.25\linewidth]{./assets/hsrlogo}}
+\newcommand{\LogoCompany}{\includegraphics[width=0.25\linewidth]{./assets/ifslogo}}
+
+\title{Micro-Frontends}
+\subject{Term Project}
 \author{Matthias Baumann}
+\department{Department of Computer Science\\University of Applied Science Rapperswil}
 
-
+\headerFooterContent
 
 \begin{document}
+
+\pagenumbering{roman}
+
 \maketitle
 
-\subfile{problemstatement/main}
-\subfile{protocols/main}
-\subfile{appendix/main}
+\listoftodos[List of suggested changes]
+
+\subfile{sections/abstract}
+\clearpage
+
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\subfile{sections/management}
+\cleardoublepage
+
+\subfile{sections/introduction/main}
+\subfile{sections/requirements/main}
+\subfile{sections/methology/main}
+\subfile{sections/results/main}
+\subfile{sections/discussion/main}
+
+\headerFooterAppendix
+\subfile{sections/appendix/main}
+\subfile{sections/protocols/main}
+
+\cleardoublepage
 \end{document}

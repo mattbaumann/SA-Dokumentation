@@ -1,0 +1,202 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%% KOMA Script
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\KOMAoptions{parskip = half} % full for one line % full for one line
+\KOMAoptions{fontsize=12pt}
+
+\recalctypearea % Needed after setting font-size
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% PDF Meta Data
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+\hypersetup{xetex,
+    pdftitle={\@title},
+    pdfsubject={\@subject},
+    pdfauthor={\@author},
+    pdfkeywords={}
+    pdfproducer={\KOMAScript},
+    pdfcreator={xetex},
+    % pdftoolbar=true, % show Acrobat’s toolbar?
+    % pdfmenubar=true,        % show Acrobat’s menu?
+    % pdffitwindow=false,     % window fit to page when opened
+    % pdfstartview={FitH},    % fits the width of the page to the window
+    % pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Header and Footer %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\sectionmark}[1]{\markright{#1}} %entfernt nummer vor section
+\renewcommand{\subsectionmark}[1]{}
+
+\pagestyle{scrheadings}
+
+\makeatletter
+
+% e - even or o - odd
+% l - left, c - center, r - right
+\newcommand{\headerFooterContent} {
+
+    \clearscrheadfoot
+
+    \KOMAoptions{headsepline = yes}
+    \KOMAoptions{footsepline = yes}
+
+    \rohead{\LogoHSR}
+    \rehead{\LogoCompany}
+    \lohead{\LogoCompany}
+    \lehead{\LogoHSR}
+
+    \rofoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
+    \refoot{\today}
+    \cefoot{{ \small \@author}}
+    \lefoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
+    \lofoot{\today}
+    \cofoot{{ \small \@author}}
+
+    \recalctypearea % Needed to recalculate all lengths
+}
+
+\newcommand{\headerFooterAppendix} {
+    \clearscrheadfoot
+
+    \KOMAoptions{headsepline = no}
+    \KOMAoptions{footsepline = no}
+
+    % \rohead{\LogoHSR}
+    % \rehead{\LogoCompany}
+    % \lohead{\LogoCompany}
+    % \lehead{\LogoHSR}
+
+    % \rofoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
+    % \refoot{\today}
+    % \cefoot{{ \small \@author}}
+    % \lefoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
+    % \lofoot{\today}
+    
+    \recalctypearea % Needed to recalculate all lengths
+}
+
+\makeatother
+
+% \setkomafont{pageheadfoot}{\small}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Title
+%%%%%%%%%%%%%%%%%%%%%
+
+\RedeclareSectionCommand[
+    beforeskip=-\baselineskip,
+    afterskip=.5\baselineskip,
+    indent=1pt]{section}
+
+\RedeclareSectionCommand[
+    beforeskip=-\baselineskip,
+    afterskip=.5\baselineskip,
+    indent=1pt]{subsection}
+
+\RedeclareSectionCommand[
+    beforeskip=-\baselineskip,
+    afterskip=.5\baselineskip,
+    indent=1pt]{subsubsection}
+
+\RedeclareSectionCommand[
+    beforeskip=-\baselineskip,
+    afterskip=.5\baselineskip,
+    indent=1pt]{paragraph}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Index
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{imakeidx}
+\makeindex[intoc,columnseprule]
+\indexsetup{firstpagestyle=plain}    % Show header/footer on index page
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Marginals %%
+%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\marg}[1]{\marginpar{\raggedright \textbf{#1} }}
+
+%%%%%%%%%%%%%
+%% Tabular %%
+%%%%%%%%%%%%%
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % Tabelleninhalt linksausgerichtet
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % Tabelleninhalt rechtsausgerichtet
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} %  Tabelleninhalt zentriert
+
+
+%%%%%%%%%%%%%
+%%   Misc  %%
+%%%%%%%%%%%%%
+
+\newcommand{\matlab}[1]{\footnotesize{(Matlab: \texttt{#1})}\normalsize{}}
+
+\newcommand\tabbild[2][]{%
+	\raisebox{0pt}[\dimexpr\totalheight+\dp\strutbox\relax][\dp\strutbox]{%
+		\includegraphics[#1]{#2}%
+	}%
+}
+
+% Makro für Vorteile und Nachteil mit Plus und Minus
+\newcommand\pro{\item[$+$]}
+\newcommand\con{\item[$-$]}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathematical Operators %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+\DeclareMathOperator{\euler}{e}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\PolyGrad}{PolyGrad}
+\DeclareMathOperator{\gradient}{grad}
+\DeclareMathOperator{\rotation}{rot}
+\DeclareMathOperator{\divergenz}{div}
+\DeclareMathOperator{\imag}{j}
+
+%Grösse Integral anpassen
+\def\Int{\mbox{\Large$\displaystyle\int$\normalsize}}
+\def\Int{\mbox{\Large$\displaystyle\iint$\normalsize}}
+\def\OInt{\mbox{\Large$\displaystyle\oint$\normalsize}}
+
+%Makro für 'd' von Integral- und Differentialgleichungen 
+\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fouriertransform %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\unitlength1cm
+\newcommand{\FT}
+{
+	\begin{picture}(1,0.5)
+	\put(0.2,0.1){\circle{0.14}}\put(0.27,0.1){\line(1,0){0.5}}\put(0.77,0.1){\circle*{0.14}}
+	\end{picture}
+}
+
+
+\newcommand{\IFT}
+{
+	\begin{picture}(1,0.5)
+	\put(0.2,0.1){\circle*{0.14}}\put(0.27,0.1){\line(1,0){0.45}}\put(0.77,0.1){\circle{0.14}}
+	\end{picture}
+}
+
+\makeatother % General barrier
