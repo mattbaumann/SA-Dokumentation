@@ -1,0 +1,40 @@
+\documentclass{article}
+ 
+\begin{document}
+    
+\subsection{21. November 2018} \label{chap:Protokols:21nov2018}
+
+\subsubsection{Entscheidungen letzten Woche / Arbeiten erledigt}
+\begin{itemize}
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahrungen der Programmierung und Modellierung letzen zwei Wochen.
+    \item Architekturen vergleichen anhand von qualitativen Merkmalen
+    \item Abschliessen der Frontend-Programmierung ohne WebComponents \checkmark
+    \item Beschlüsse aus Sitzung umsetzen und top 5 Architekturentscheidungen in z. B. Markdown verfassen.\checkmark
+\end{itemize}
+
+\subsubsection{Traktanden}
+\begin{itemize}
+    \item Frontend Composition - Ansehen der Beispielapplikation insgesammt und die Komponenten, die dann Komponiert werden sollen
+    \item Prototyp Frontend zum Auftrennen in verschiedene WebFragments
+\end{itemize}
+
+\subsubsection{Protokoll}
+\begin{itemize}
+    \item Ansehen der Portal Integration mit Mirko Stocker
+    \item In Portal Integration wurde ein GET Requst genutzt um den "Remove"-Funktion zum laufen zu bringen, ist keine optimale Lösung, da Suchmaschienen etc. dem Link folgen könnten und die Daten auf der Datenbank verändern. Besser ein HTTP-Verb verwenden, z. B. ein Inline-Formular mit Button (POST).
+    \item GET Request muss idempotent sein (Siehe HTTP-Standard)
+    \item Zeitbudget ist schon zu 3/4 (190h) aufgebraucht. Entscheidung, dass ich auf nächste Woche einen Zeitplan für die letzten 50h aufstelle und ins Meeting mitnehme. Soll die Richtung vorgeben für den Abschluss der Arbeit.
+    \item Prototyp Frontend Auftrennung in WebFragments wird niedrig Priorisiert zugunsten der Dokumentation und des Projektplans der letzten 4 Wochen.
+    \item Besprechung der drei Technologien Server Side Includes, Edge Sides Includes und Web Fragments. Aus folgenden Gründen können diese innerhalb der Studienarbeit nicht mehr umgesetzt werden:
+    \begin{enumerate}
+        \item Server Side Include: Apache Server spezifisch und wurde mit Thymeleaf ersetzt
+        \item Edge Side Includes: API Gateway spezifisch, wurde in vorheriger Sitzung pausiert
+        \item Web Fragments: Technisch möglich, kann diese aus Zeitgründen nicht mehr abschliessen
+    \end{enumerate}
+    \item Nächstes Meeting am Mittwoch 28. 11.18 um 13:00 mit Olaf Zimmermann und Mirko Stocker
+\end{itemize}
+\subsection{Nächste Schritte}
+    \begin{enumerate}
+        \item Zeitplan der nächsten vier Wochen, Wie sieht der Verlauf und der Abschluss aus
+    \end{enumerate}
+\end{document}

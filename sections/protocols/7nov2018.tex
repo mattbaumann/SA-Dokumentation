@@ -1,0 +1,75 @@
+\documentclass{article}
+ 
+\begin{document}
+    
+\subsection{7. November 2018} \label{chap:Protokols:7nov2018}
+
+\subsubsection{Entscheidungen letzten Woche / Arbeiten erledigt}
+\begin{itemize}
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahrungen der Programmierung und Modellierung letzen zwei Wochen.
+    \item Kriterien Katalog auf Excel Tabelle
+    \item Architekturen vergleichen anhand von qualitativen Merkmalen 
+    \item Überarbeitung der Beispielservices - nicht ausgeführt aus Zeitmangel
+    \item Composition Diagram umdrehen
+    \item Tabellen, Webdesign, URL (URI Namensraum detailliert beschreiben) \checkmark
+    \item Client Server Cuts und Client / Server Layering in der Vorgeschlagenen IRP (informal rich picture) darstellen und beschreiben. \checkmark
+    \item Portal Integration läuft stabil und besitzt alle Funktionen \checkmark
+    \item Backend Integration läuft stabil ist noch nicht vollständig ausprogrammiert \checkmark
+\end{itemize}
+
+\subsubsection{Traktanden}
+\begin{itemize}
+    \item Nächste Woche 13:00 im Raum 1.275
+    \item URL Namensraum ist vorbereitet. Dies erforderte viel lesen, verstehen von Spring, und standardisieren von URLs im Prototyp
+    \item Wegen oben habe ich den Kopf voll mit technischen Details von Spring gehabt. Aus diesem Grund habe ich diese Woche Prototyp Integration programmiert.
+    \item Portal Integration
+    \item Backend Integration
+    \item Ich habe keine weiteren Features dem Framework hinzugefügt, da ich dies tief priorisiert habe.
+    \begin{itemize}
+        \item erhöht den Arbeitsaufwand bei den Integrations
+        \item Nicht wichtig für Kernaufgabenstellung, Niedrige Priorität
+    \end{itemize}
+    \item informal rich picture 
+    \item Nächste Woche: Dokumentation nachholen an 1.5Tage und 0.5 Tage um Überzeitabbau
+\end{itemize}
+
+\subsubsection{Protokoll}
+\begin{itemize}
+    \item ``Backend for Frontend'' von Sam Newman auf Relevanz prüfen
+    \item Kriterien für Katalog
+        \begin{enumerate}
+            \item Performance
+            \begin{itemize}
+                \item Seitenladezeit nicht zu lange
+                \item Speicherverbrauch
+                \item Grösse der Website in der Übertragung sollte unter 5 Megabyte verbleiben
+            \end{itemize}
+            \item Zusammenstellung von verschiedenen Komponenten muss im Design aufeinander abgestimmt sein
+            \item  Kommunikation zwischen den Komponenen (Microfrontends)
+            \item  Robustheit durch Isolation der Komponenten. Beispielsweise darf Komponenten nicht ausfallen weil sie keine Antwort von Peer bekommt
+            \item Security
+                \begin{itemize}
+                    \item SSL und TLS muss unterstützt werden
+                    \item SSL und TLS Endpoints dürfen sich nicht in die Quere kommen.
+                    \item Keine Seiteneffekte bei verschiedenen SSL Zertifikaten
+                    \item CIA
+                    \item Authentication, keine zwei Logins für Nutzer
+                \end{itemize}
+        \end{enumerate}
+    \item Bewusste Entscheidung von Browsern für Testen des Frontends mit Firefox und Chrome. Optional noch Microsoft Edge. 
+    \item Lighthouse Chrome Plugin gibt eine Qualitätsscore für Mobileanwendungen.
+    \item Genaue Dokumentierung von Ausgangssituationen
+    \item Ansehen des Kriterienkataloges mit Mirko Stocker
+    \item Kriterien für Katalog
+        \begin{enumerate}
+            \item SEO, Search Engine Optimization, gutes Markup ohne Javascript
+            \item Ad Blocker sollen nicht die Funktionalität der Site beinträchtigen.
+            \item Umgang mit Cookies, sowohl selber ausgestellte und Tracing Cookies von 3. Seite
+            \item Umgang mit Ad Blocker muss gewährleistet werden
+            \item E-Tag und cache invalidierung muss beim Update eines Services korrekt funktionieren
+        \end{enumerate}
+    \item Mit Facebook Debugger kann das SEO von der Seite getestet werden. Facebook Debugger nimmt URL und gibt Informationen des Crawling zum Entwickler zurück.
+    \item Sitzung am 14.11.2018 mit Olaf Zimmermann und 21.11.2018 mit Mirko Stocker. Es ist an der gleichen Zeit und Ort bei beiden Terminen.
+    \item IFS-Logo aktualisieren auf aktuelle Version.
+\end{itemize}
+\end{document}

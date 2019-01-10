@@ -4,8 +4,12 @@
 
 \KOMAoptions{parskip = half} % full for one line % full for one line
 \KOMAoptions{fontsize=12pt}
+\KOMAoptions{twoside=semi}
+\KOMAoptions{titlepage}
 
 \recalctypearea % Needed after setting font-size
+
+\clearpairofpagestyles % Remove all previously defined page styles
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %% PDF Meta Data
@@ -13,7 +17,7 @@
 
 \makeatletter
 
-\hypersetup{xetex,
+\hypersetup{
     pdftitle={\@title},
     pdfsubject={\@subject},
     pdfauthor={\@author},
@@ -35,13 +39,19 @@
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%
+%%    Page geometry   %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\geometry{vmargin=4cm, headheight=37pt, left=6cm, right=2cm, marginparwidth=3.5cm, marginparsep=0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 %% Header and Footer %%
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % \renewcommand{\sectionmark}[1]{\markright{#1}} %entfernt nummer vor section
 % \renewcommand{\subsectionmark}[1]{}
 
-\pagestyle{scrheadings}
+%\pagestyle{scrheadings}
 
 \makeatletter
 
@@ -51,6 +61,8 @@
 
     \clearscrheadfoot
 
+    \KOMAoptions{headwidth = textwithmarginpar:-\the\marginparwidth-\the\marginparsep:marginpar}
+    \KOMAoptions{footwidth = textwithmarginpar:-\the\marginparwidth-\the\marginparsep:marginpar}
     \KOMAoptions{headsepline = yes}
     \KOMAoptions{footsepline = yes}
 
@@ -59,14 +71,12 @@
     \lohead{\LogoCompany}
     \lehead{\LogoHSR}
 
-    \rofoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
+    \rofoot{\thepage\ von \lastpageref*{LastPages}}
     \refoot{\today}
     \cefoot{{ \small \@author}}
-    \lefoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
+    \lefoot{\thepage\ von \lastpageref*{LastPages}}
     \lofoot{\today}
-    \cofoot{{ \small \@author}}
-
-    \recalctypearea % Needed to recalculate all lengths
+    \cofoot{{\small \@author}}
 }
 
 \newcommand{\headerFooterAppendix} {
@@ -74,19 +84,6 @@
 
     \KOMAoptions{headsepline = no}
     \KOMAoptions{footsepline = no}
-
-    % \rohead{\LogoHSR}
-    % \rehead{\LogoCompany}
-    % \lohead{\LogoCompany}
-    % \lehead{\LogoHSR}
-
-    % \rofoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
-    % \refoot{\today}
-    % \cefoot{{ \small \@author}}
-    % \lefoot{\thepage\ (\theCurrentPage) of \lastpageref*{LastPages}}
-    % \lofoot{\today}
-    
-    % \recalctypearea % Needed to recalculate all lengths
 }
 
 \makeatother
@@ -135,11 +132,14 @@
 \makeindex[intoc,columnseprule]
 \indexsetup{firstpagestyle=plain}    % Show header/footer on index page
 
+\renewcommand\appendixtocname{Appendix}
 
 %%%%%%%%%%%%%%%%%%%%%
 %% Marginals %%
 %%%%%%%%%%%%%%%%%%%%%
-\newcommand{\marg}[1]{\marginpar{\raggedright \textbf{#1} }}
+\newcommand{\marg}[1]{\marginpar{\raggedright\small\textbf{#1} }}
+
+\reversemarginpar % marginpar on left side
 
 %%%%%%%%%%%%%
 %% Tabular %%
@@ -147,7 +147,7 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % Tabelleninhalt linksausgerichtet
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % Tabelleninhalt rechtsausgerichtet
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} %  Tabelleninhalt zentriert
-
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 %%%%%%%%%%%%%
 %%   Misc  %%
@@ -155,10 +155,10 @@
 
 \newcommand{\matlab}[1]{\footnotesize{(Matlab: \texttt{#1})}\normalsize{}}
 
-\newcommand\tabbild[2][]{%
-	\raisebox{0pt}[\dimexpr\totalheight+\dp\strutbox\relax][\dp\strutbox]{%
-		\includegraphics[#1]{#2}%
-	}%
+\newcommand\tabbild[2][]{
+	\raisebox{0pt}[\dimexpr\totalheight+\dp\strutbox\relax][\dp\strutbox]{
+		\includegraphics[#1]{#2}
+	}
 }
 
 % Makro für Vorteile und Nachteil mit Plus und Minus
@@ -211,3 +211,12 @@
 }
 
 \makeatother % General barrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Truanslations %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\providecaptionname{english}{\authors}{Author(s):}
+\providecaptionname{ngerman}{\authors}{Autor(en):}
+\providecaptionname{english}{\dates}{Date:}
+\providecaptionname{ngerman}{\dates}{Datum:}

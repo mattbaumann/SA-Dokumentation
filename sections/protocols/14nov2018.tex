@@ -1,0 +1,52 @@
+\documentclass{article}
+ 
+\begin{document}
+    
+\subsection{14. November 2018} \label{chap:Protokols:14nov2018}
+
+\subsubsection{Entscheidungen letzten Woche / Arbeiten erledigt}
+\begin{itemize}
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahrungen der Programmierung und Modellierung letzen zwei Wochen.
+    \item Kriterien Katalog auf Excel Tabelle \checkmark
+    \item Architekturen vergleichen anhand von qualitativen Merkmalen 
+    \item Überarbeitung der Beispielservices - nicht ausgeführt aus Zeitmangel
+    \item Composition Diagram umdrehen \checkmark
+\end{itemize}
+
+\subsubsection{Traktanden}
+\begin{itemize}
+    \item Server Side Includes sind nicht implementiert, da dies unter Spring nicht verfügbar ist. Ich habe mit ``Thymeleaf Template URL Resolution'' habe ich eine vergleichbare Lösung gefunden.
+    \item Edge Side Includes sind nicht implementiert, da wir Middleware niedrig priorisiert haben.
+    \item Portal Integration
+    \item Backend Integration
+    \item Ich habe keine weiteren Features dem Framework hinzugefügt, da ich dies tief priorisiert habe.
+    \begin{itemize}
+        \item erhöht den Arbeitsaufwand bei den Integrations
+        \item Nicht wichtig für Kernaufgabenstellung, Niedrige Priorität
+    \end{itemize}
+    \item informal rich picture 
+    \item Prototyp Frontend zum Auftrennen in verschiedene WebFragments
+\end{itemize}
+
+\subsubsection{Protokoll}
+\begin{itemize}
+    \item Analyse, Design, Implementierung, Test, Bericht, Projektleitung: Auswertung der Zeiten aufgeteilt auf die verschiedenen Tätigkeiten. Wichtig ist die Abweichung von der Zeitplanung, und Begründung weshalb.
+    \item Wichtige Entscheide sind diese, die von architektonischer Bedeutung sind. Diese sollen als Vorschlag in die Sitzung hineingebracht werden und dann wird der Entscheid in der Sitzung gefällt.
+    \item Aufgrund der fortgeschrittenen Zeit im Projekt, Priorität auf bereits begonnenen Arbeiten abschliessen und bereits getroffene Design-Entscheide Umsetzen, Dokumentieren und Evaluieren. Keine neuen Technische Gebiete, z. B. Backend-Design beginnen, das Abschliessen hat Vorrang vor neuen Tätigkeiten.
+    \item Auf der Implementierungsebene wird Typescript verwendet, da gute Erfahrungen aus vorherigen Projekten vorliegen, keine Auswirkungen auf Architektur, der Kriterien und Evaulation der Kriterien erwartet. Falls doch welche auftreten, muss dies im Meeting besprochen werden.
+    \item Es braucht einen Abschnitt im Bericht der sämtlichen direkten externen Abhängigkeiten listet mit Versionen und Lizenz. Dies beinhaltet auch Libraries und Frameworks.
+    \item Verwendung von JSON in den HTTP Schnittstellen gut dokumenieren, z. B. Swagger benutzen und JSONSchema der Datacontract wurde auch beschrieben. So sehen die Strukturen der Endpunkte aus. 
+    \item Lessions learned,
+    \item Projekt Risiko aktualisiert und anpasst
+    \item Zwei Versionen der Dokumentation abgeben, eine Öffentliche Version, und eine private Version. Weitere Informationen finden sich in den Vorgaben des Studiengangs.
+    \item Source Code abgaben
+    \item Die wichtigsten 5- 10 Architekturentscheidungen sind in den Bericht zu übernehmen. Vergleiche Check-Liste Bericht Studiengang. Weitere Entscheidungen können z. B. mit MADR im Repo dokumentiert werden.
+    \item Sitzung nächste Woche mit Mirko Stocker und die darauf folgende mit Olaf Zimmermann.
+\end{itemize}
+\subsection{Nächste Schritte}
+\begin{itemize}
+    \item Abschliessen der Frontend-Programmierung ohne WebComponents
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahrungender Programmierung und Modellierung letzen zwei Wochen. Jede Stude 5min, handschriftliche Notizen. Backend for Frontend
+    \item Beschlüsse aus Sitzung umsetzen und top 5 Architekturentscheidungen in z. B. Markdown verfassen.
+\end{itemize}
+\end{document}

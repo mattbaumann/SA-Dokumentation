@@ -1,0 +1,61 @@
+\documentclass{article}
+ 
+\begin{document}
+    
+\subsection{31. Oktober 2018} \label{chap:Protokols:1nov2018}
+
+\subsubsection{Entscheidungen letzten Woche / Arbeiten erledigt}
+\begin{itemize}
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahrungen der Programmierung und Modellierung letzen zwei Wochen.
+    \item Meeting nächste Woche 31.10.18 um 14:00 vor Büro 1.171 (Büro von Olaf Zimmermann) \checkmark
+    \item Link für HAL Browser bereitstellen für Olaf Zimmermann damit er die Idee weitergeben kann. \checkmark
+    \item Link für H2 Database Administration Tool bereitstellen für Olaf Zimmermann damit er die Idee weitergeben kann. \checkmark
+    \item Abschluss von Kriterien Katalog in Review Form dafür müssen folgende Tätigkeiten abgeschlossen werden: \checkmark
+    \begin{enumerate}
+        \item Übersetzen von Englisch auf Deutsch \checkmark
+        \item Überarbeitung, speziell die Pos- und Negativbeispiele \checkmark
+    \end{enumerate}
+    \item Abschluss von purchase-list und cook-book services\checkmark
+    \item Vorbereitung der Services für Vergleiche von Integrationsformen
+        \begin{enumerate}
+            \item WebComponents
+            \item Server Side Includes
+            \item Bei den Composition Patterns von Cris Richardson starten\checkmark
+            \item Ein Wichtiger Teil des Projektauftrages besteht darin ausgewählte Microservices Patterns von Cris Richtardson zu implementieren, zu analysieren und zu illustrieren. Eine erste Auswahl wurde in P Sitzung 04 getroffen. Dies kann beispielsweise durch einpflegen durch direkte Links auf die Patterns durch code-level Kommentare erfolgen und / oder explizite Verwendung der Terminologie der Pattern bei der Benennung der Klassen und Komponenten in der Beispelanwendung.\checkmark
+        \end{enumerate}
+\end{itemize}
+
+\subsubsection{Traktanden}
+\begin{itemize}
+    \item Soll ich eine Tabelle mit Unterkriterien vom Kriterien-Katalog vorbereiten, sodass wir im Vergleich dann Punkte vergeben können und anhand von Punktzahl die Integrationsformen vergleichen können. Auch kann dann gesagt werden, Integration A hat im Beispielkriterium 2 Punkte und weil B im Kriterium 3 Punkte hat ist die Integration B in diesem Vergleich besser\ldots
+    \item Abnahme Beispielapplikation mit drei Services
+    \begin{enumerate}
+        \item Kitchen Device Service
+        \item Purchase List Service
+        \item Recipe Service
+    \end{enumerate}
+    \item Ich habe die Domainmodel Klassen \textit{Recipe Item} und \textit{Recipe Ingredient} nicht programmiert, da diese Klassen für Micro-Frontend Sinn keinen Mehrwert gegeben hätten.
+    \item Ich habe die Kommentare und Klassennamen für Richardson Patterns eingepflegt, ich habe nicht viele Orte gefunden, denn die Website ist sehr karg ausgeschrieben und es sind nicht viele Patterns. Wie gehen wir hier weiter?
+    \item Nächste Schritte
+    \begin{itemize}
+        \item WebComponents
+        \item Integration der Subservices in Page von \textit{Recipe Service}
+        \item Testen der Integration
+        \item Bewertung der Integration
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Protokoll}
+\begin{itemize}
+    \item Ausführung von Kriterien Katalog als vergleichbare, qualitative Merkmale, die sich unter den Architekturen vergleichen lassen.
+    \item Die Architekturen relativ zueinander vergleichen anhand von qualitativen Merkmalen klassifizieren nach gut, ausreichend und weniger gut. 
+    \item Purcahse List, die Attributen und Datentypen variieren und ein Gewicht hinzufügen
+    \item Um die Aussagekraft von des Architekturvergleichs zu erhöhen sollen die Services um Behaviour und State Management angereichert werden. Um dies zu erreichen sollen neue Attribute wie Preis hinzugefügt werden in der Einkaufs-Liste. Beispielsweise lässt sich dadurch der Preis des Einkaufs berechnen.
+    \item Composition Diagram umdrehen und Client oben.
+    \item Tabellen, Webdesign, URL (URI Namensraum detailiert beschreiben)
+    \item Unterscheiden von Portal Architektur, wenn mehrere Seiten Siten zusammen zu ziehen, 
+    \item Kleinen Server Cuts (Distributed Presentation) bei der Beschreibung der Architektur- Optionen verwenden
+    \item 1 Tag Implementierung und 1/2 Tag Verbesserung des Kriterien Katalogs in Hinblick auf Editorielle und Sprachliche Reife, 1/2 Client Server Cuts und Client / Server Layering in der Vorgeschlagenen IRP (informal rich picture) darstellen und beschreiben. Siehe handschriftliche Entwurf aus Sitzung.
+    \item Nächste Woche 13:00 im Raum 1.275
+\end{itemize}
+\end{document}

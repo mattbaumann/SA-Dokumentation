@@ -1,0 +1,66 @@
+\documentclass{article}
+ 
+\begin{document}        
+    
+\subsection{17. October 2018}
+
+\subsubsection{Entscheidungen letzten Woche / Arbeiten erledigt}
+\begin{itemize}
+    \item CA commercial gateway order handed in at CA, but product key not already received.
+    \item Programmed sample application service with following functions
+        \begin{itemize}
+            \item Database with H2 running locally with saving data to file
+            \item O-R Mapping of the entities with Hibernate. Automatic database schema creating using the entities 
+            \item REST API works with spring-boot-data-rest and HATEOAS. That provides Objective-JSON mapping, HATEOAS linking between data etc.
+            \item REST API Testing for testing data-management with integration tests. These tests invoke the REST API and prove the requirements are met.
+            \item Page rendering with Thymeleaf works with Controller class.
+            \item Static page serving, important for skeleton page serving possible
+        \end{itemize}
+    \item The micro service for kitchen device and purchase list were started and are matured.
+\end{itemize}
+
+\subsubsection{Themen in der Besprechung (Planung)}
+\begin{itemize}
+    \item I reviewed the time I used for different tasks. It feels like I use a long time for project tasks. See Difficulties PDF
+    \item I still do not understand backend composition. Therefore, I need to do more research in this topic.
+    \item I propose for the criteria catalog, to leave the example as they are, but add the actual criteria for success below. I also try to use the examples for conveying my idea why the criteria is important. So only positive and high quality examples.
+    \item Project tells me that my project progress is a week behind the current date. May I rescale the size of the application and how to document the reason and practice of the scope reduction.
+\end{itemize}
+
+\subsubsection{Protokoll}
+\begin{itemize}
+    \item Alle Protokolle und die Dokumentation wird auf Deutsch geschrieben
+    \item Umschreiben der Kapitel, die schon geschrieben wurden, und auf Deutsch übersetzen, nicht Protokolle oder Artefakte im Git
+    \item Die nächste Version des Kriterien Kataloges, die das Feedback der ersten englischen Version berücksichtigt und wird auf Deutsch verfasst.
+    \item Entscheide der letzen Wochen finden sich im Protokoll wieder, mit der Bezeichnung nicht gemacht ode gemacht wenn so.
+    \item Sorgfalt, Projektmangement und Kommunikation mit dem Auftraggeber 1. Teilnote, ist bis einschliesslich W4 nicht ausreichend
+    \item Massnahme, 1. auf Deutsch schreiben 2. Massnahme, detailierte, gemeinsame Planung und Nachbesprechung der Arbeitspakete oder Projektaktvitäten in den Gemeinsamen Sitzungen.
+    \item Aufbau des Protokolles ist wie folgt:
+        \begin{enumerate}
+            \item Planung
+            \item Protokollierung
+            \item Nachbesprechung
+        \end{enumerate} 
+    \item Da im Projekt im Verzug gemäss Projekt Plan, Entscheidung durch seit letztem Meeting, dass aktuell die Beispiel Implementierung, der redaktionellen Arbeit am Kriterien Katalog \& Bericht vorzuziehen war.
+    \item Entwürfe der drei Komponenten Model für die drei Architektur Optionen angeschaut. Rückmeldung Betreuer: Sinnvolle Verwendung von Diagrammelementen
+    \item Wichtig ist die Spezifikation der Interfaces zwischen den Komponenten
+    \item Teilkommenare zu allen Diagrammen: Siehe Hardcopy, Printout, Bsp. in der Gateway alternative, keien restfull HTTP zwischen den Services.
+    \item Im begleiteten Text auf Komposition-Diagramm, auf Richrdson Pattern bezugnehmen und die Patterns, die verwendet wurden referenzieren.
+    \item Integration-Test des Versuchaufbaus zurückstellen, falls genügend Zeit vorhanden, kann dies noch nachgeholt werden.
+\end{itemize}
+
+\subsubsection{Nächste Schritte}
+\begin{enumerate}
+    \item Grundauftrag, Fragments vorbereiten und Recipe Service abschliessen.
+    \item Überarbeiten der Diagramme
+        \begin{enumerate}
+            \item Komponenten-Diagramme, siehe Hard-Copy
+            \item Requirements-Diagramm mit Glossar, das die Farbkodierung für den Leser erklärt
+            \item Kopieren der Komponenten-Diagramme für OZ
+            \item Cooking Book -> Cook Book Service
+        \end{enumerate}
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahrungen der Programmierung und Modellierung letzten zwei Wochen.
+    \item Umschreiben der Kapitel, die schon geschrieben wurden, und auf Deutsch übersetzen, nicht Protokolle oder Artefakte im Git
+    \item Ausblick: Security, Policy decision point und Policy enforcement point wohin diese zu setzen. 
+\end{enumerate}
+\end{document}

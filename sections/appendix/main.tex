@@ -1,11 +1,50 @@
-
-\chapter{Appendix}
 \graphicspath{{./sections/appendix/assets}}
+
 \appendix
-% \stopcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-% \startcontents[sections]
-% \printcontents[sections]{l}{1}{\setcounter{tocdepth}{2}}
-% \clearpage \pagebreak
+\clearpage \pagebreak
 
+\subfile{sections/appendix/tables}
+\clearpage
+\subfile{./sections/requirements/projectSchedule}
+
+\begin{appendices}
+
+\includepdf[pages=5-7]{sections/requirements/assets/Aufgabenstellung}
 \subfile{sections/appendix/authorship}
+\clearpage
+\includepdf[pages=-]{sections/appendix/assets/Authorship.pdf}
+\includepdf[pages=-]{sections/appendix/assets/Urheberrecht.pdf}
+\includepdf[pages=-]{sections/appendix/assets/Publikation.pdf}
+\includepdf[pages=-]{sections/appendix/assets/Poster.pdf}
+\subfile{sections/appendix/reflection}
+
+\includepdf[pages=-]{sections/appendix/assets/ZeitaufschreibungSA.pdf}
+\includepdf[pages=-]{sections/appendix/assets/ProjektScheduleDocumentation.pdf}
+
+\includepdf[pages=-]{sections/appendix/assets/RiskAnalysis.pdf}
+
+\includepdf[pages=1]{sections/appendix/assets/Requirements.pdf}
+
+\includepdf[pages=1]{sections/appendix/assets/DomainModel.pdf}
+\includepdf[pages=-]{sections/appendix/assets/ComponentModelBackendComposition.pdf}
+\includepdf[pages=-]{sections/appendix/assets/ComponentModelBrowserIntegration.pdf}
+\includepdf[pages=-]{sections/appendix/assets/ComponentModelAPIGateway.pdf}
+
+\includepdf[pages=1]{sections/appendix/assets/SharePointServer.pdf}
+
+\includepdf[pages=-]{sections/appendix/assets/purchaseListService.pdf}
+\includepdf[pages=-]{sections/appendix/assets/kitchenDeviceService.pdf}
+\includepdf[pages=-]{sections/appendix/assets/recipeService.pdf}
+
+\includepdf[pages=-]{sections/appendix/assets/architecture.pdf}
+
+\includepdf[pages=-]{sections/appendix/assets/output.pdf}
+
+\includepdf[pages=-]{sections/appendix/assets/url.pdf}
+\includepdf[pages=-]{sections/appendix/assets/KitchenDeviceAPI.pdf}
+\includepdf[pages=-]{sections/appendix/assets/PurchaseListAPI.pdf}
+\includepdf[pages=-]{sections/appendix/assets/RecipeAPI.pdf}
+
+\end{appendices}

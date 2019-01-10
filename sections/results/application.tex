@@ -1,0 +1,85 @@
+\section{Beispielapplikation}
+
+\subsection{Installation der Beispielapplikation}
+
+Abhängigkeiten die vorher installiert werden müssen:
+
+\begin{table}
+\begin{tabularx}{\textwidth}{| c | X |}
+    \hline
+    Git & package manager
+    \\ \hline
+    Java JDK 8 & \url{https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}
+    \\ \hline
+    NodeJS & \url{https://nodejs.org/en/} 
+    \\ \hline
+\end{tabularx}
+\caption{Abhängigkeiten, die vorherig, separat installiert werden müssen}
+\end{table}
+\paragraph{Execute under Mac \& Linux}
+
+Clone repository
+\begin{lstlisting}
+git clone https://github.com/mattbaumann/Micro-Frontends.git && cd Micro-Frontends
+\end{lstlisting}
+
+Make gradlew executable
+\begin{lstlisting}
+chmod +x ./gradlew
+\end{lstlisting}
+
+Starting backend services
+\begin{lstlisting}
+./gradlew bootRun
+\end{lstlisting}
+
+Starting frontend
+\begin{lstlisting}
+cd frontend/monolithic
+npm install
+npm run serve
+\end{lstlisting}
+
+Building documentation
+\begin{lstlisting}
+./gradlew javadoc
+./gradlew asciidoc
+\end{lstlisting}
+
+\paragraph{Execute under Windows PowerShell}
+
+Clone the respority
+\begin{lstlisting}
+git clone https://github.com/mattbaumann/Micro-Frontends.git && cd Micro-Frontends
+\end{lstlisting}
+
+Starting backend services
+\begin{lstlisting}
+./gradlew bootRun
+\end{lstlisting}
+
+Starting frontend
+\begin{lstlisting}
+cd frontend/monolithic
+npm install
+npm run serve
+\end{lstlisting}
+
+Building documentation
+\begin{lstlisting}
+./gradlew javadoc
+./gradlew asciidoc
+\end{lstlisting}
+
+\paragraph{Entwicklungsumgebung Eclipse}
+
+Building Eclipse Project
+\begin{lstlisting}
+./gradlew eclipse
+\end{lstlisting}
+
+Unter Eclipse kann \textit{File} > \textit{Import Project} ausgewählt werden und das Projekt als \textit{Existing Project} importiert werden.
+
+\paragraph{Entwicklungsumgebung IDEA}
+
+Unter dem Startbildschirm von IDEA kann \textit{Import Project} ausgewählt werden und der Projekt-Ordner ausgewählt werden. Beim Import-Wizard \textit{Existing Code-Model} und dann \textit{Gradle} auswählen. Den Wizard dann abschliessen.

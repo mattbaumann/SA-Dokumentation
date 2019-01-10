@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{amssymb}
+ 
+\begin{document}
+    
+\subsection{24. October 2018} \label{chap:Protokols:24oct2018}
+
+\subsubsection{Entscheidungen letzten Woche / Arbeiten erledigt}
+\begin{itemize}
+    \item Grundauftrag, Fragments vorbereiten und Recipe Service abschliessen. \checkmark
+    \item Überarbeiten der Diagramme \checkmark
+        \begin{enumerate}
+            \item Komponenten-Diagramme, siehe Hard-Copy \checkmark
+            \item Requirements-Diagramm mit Glossar, das die Farbkodierung für den Leser erklärt \checkmark
+            \item Kopieren der Komponenten-Diagramme für OZ \checkmark
+            \item Cooking Book -> Cook Book Service \checkmark
+        \end{enumerate}
+    \item Reflexion auf lessons learned, input für Kriterienkatalog aus Erfahreungen der Programmierung und Modellierung letzen zwei Wochen.
+    \item Umschreiben der Kapitel, die schon geschrieben wurden, und auf Deutsch übersetzen, nicht Protokolle oder Artefakte im Git
+    \item Ausblick: Security, Policy decision point und Policy enforcement point wohin diese zu setzen.
+\end{itemize}
+
+\subsubsection{Themen in der Besprechung (Planung)}
+\begin{itemize}
+    \item CA API Gateway wird auf Studenten-Laptops nicht laufen weil der Gateway nur "Closed-Source" auf geschlossenen Docker Images (aka. "Shareware") ist. Vorschlag: Spring Proxy können wir das Verhalten des Proxys gut nachahmen.
+    \item Fortschritt bei den Frontends für die Services
+        \begin{enumerate}
+            \item purchase lists \checkmark
+            \item kitchen device \checkmark
+        \end{enumerate}
+        Laufende Features in den beiden Frontends
+        \begin{itemize}
+            \item Homepage
+            \item Tabelleninhalt anzeigen
+            \item Editieren (POST-Request vom Browser)
+            \item HAL Browser (https://docs.spring.io/spring-data/rest/docs/current/\\reference/html/\#\_the\_hal\_browser)
+            \item H2 Database administration tool (https://docs.spring.io/spring-boot/\\docs/current/reference/html/boot-features-sql.html\#boot-features-sql-h2-console)
+            \item Gutes Erscheinungsbild ;-)
+        \end{itemize}
+    \item Die Übersetzung des Textes auf Deutsch nicht abgeschlossen und ich arbeite den Kriterienkatalog zurzeit auf.
+\end{itemize}
+
+\subsubsection{Protokoll}
+\begin{itemize}
+    \item Konflikt am nächste Woche Mittwoch der 31.10.18, Termin nicht um 13:00 sondern um 14:00. Warten vor Büro 1.171 (Büro Olaf Zimmermann).
+    \item Gemeinsamer Beschluss der CA API Gateway wird nicht weiter verfolgt und es wird nach einer Alternative gesucht mit niedriger Priorität.
+    \item Frontends für Services besprochen
+    \item Link für HAL Browser bereitstellen für Olaf Zimmermann damit er die Idee weitergeben kann.
+    \item Link für H2 Database Administration Tool bereitstellen für Olaf Zimmermann damit er die Idee weitergeben kann.
+    \item Der Purchase List Service im Meeting 06, im Unterschied dazu der Kitchen Device Service seine CRUD Operationen inkl Tools, HAL Browser, DB Admin Tool erfolgreich verliefen, präsentation auf nächste Woche verschoben.
+    \item Besprechung nächste Schritte
+\end{itemize}
+
+\subsubsection{Nächste Schritte}
+\begin{enumerate}
+    \item Meeting nächste Woche 31.10.18 um 14:00 vor Büro 1.171 (Büro von Olaf Zimmermann) \checkmark
+    \item Link für HAL Browser bereitstellen für Olaf Zimmermann damit er die Idee weitergeben kann. \checkmark
+    \item Link für H2 Database Administration Tool bereitstellen für Olaf Zimmermann damit er die Idee weitergeben kann. \checkmark
+    \item Abschluss von Kriterien Katalog in Review Form dafür müssen folgende Tätigkeiten abgeschlossen werden:
+    \begin{enumerate}
+        \item Übersetzen von Englisch auf Deutsch
+        \item Überarbeitung, speziell die Pos- und Negativbeispiele
+    \end{enumerate}
+    \item Abschluss von purchase-list und cook-book services
+    \item Vorbereitung der Services für Vergleiche von Integrationsformen
+        \begin{enumerate}
+            \item WebComponents
+            \item Server Side Includes
+            \item Bei den Composition Patterns von Cris Richardson starten
+            \item Ein Wichtiger Teil des Projektauftrages besteht darin ausgewählte Microservices Patterns von Cris Richtardson zu implementieren, zu analysieren und zu illustrieren. Eine erste Auswahl wurde in P Sitzung 04 getroffen. Dies kann beispielsweise durch einpflegen durch direkte Links auf die Patterns durch code-level Kommentare erfolgen und / oder explizite Verwendung der Terminologie der Pattern bei der Benennung der Klassen und Komponenten in der Beispelanwendung.
+        \end{enumerate}
+\end{enumerate}
+\end{document}

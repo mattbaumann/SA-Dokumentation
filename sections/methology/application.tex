@@ -1,0 +1,66 @@
+\section{Einführung in die Beispielapplikation}
+
+Die Beispielapplikation baut auf den Problemstellungen beim heimischen Kochen auf. Folglich heisst die Anwendung \enquote{Cook Book}.
+
+\begin{description}
+    \item[Cook Book] Eine Kochbuch Applikation
+    \item[Purchase List] Eine Einkaufslisten Verwaltung
+    \item[Kitchen Device] Eine Küchengeräte Verwaltung 
+\end{description}
+
+Der \marg{Cook Book Service} \textit{Cook Book} Service integriert die Funktionen der \textit{Purchase List} und \textit{Kitchen Device} Services. Damit soll eine reichere Kundenerfahrung bereitgestellt werden und eine Microservice Architektur aufgebaut werden. Ich habe die Services mithilfe des \citetitle{RichardsonDecomposeBusiness}\cite{RichardsonDecomposeBusiness} Pattern aufgeteilt.
+
+Die \marg{Hintergrundservices} Hintergrundservices haben eine unabhängige Benutzeroberfläche, die dem Benutzer \ac{CRUD} ihres Domain-Bereiches erlaubt. Ihre Daten werden vom \textit{Cook Book} Service in eine gemeinsame Oberfläche integriert. Ab Sektion \ref{sec:portalComposition} werden die verschiedenen Integrationsformen verglichen.
+
+\subsection{Software Engineering Dokumente}
+Die Software-Engineering Dokumente können im Source-Code Repository unter dem Ordner docs/ betrachtet werden.
+
+Als Teil der Arbeit wurde ein URL Schema erstellt, das im Repository-Ordner docs/url/ dokumentiert ist. \footnote{Zum Zeitpunkt der Implementierung war das Projekt \enquote{\citetitle{Springfox2012}} noch nicht Spring 5 fähig. \cite{Springfox2018} Der Architekt erstellte aus diesem Grund eine textuelle Dokumentation.}
+
+Das Repository ist unter \url{https://github.com/mattbaumann/Micro-Frontends} zugänglich.
+
+\section{Wichtige Architekturentscheidungen} \label{chap:Methology:Application:Entscheide}
+
+Ich habe die architekturelle Signifikanz der Entscheidungen, die ich während der SA getroffen habe verglichen. Die folgenden drei Entscheidungen haben die höchste Signifikanz gezeigt in dem Vergleich. Weil diese Arbeit in einer SA geschrieben wurde habe ich als Signifikanzkriterium das technische Risiko genommen.
+
+Weitere Architekturentscheidungen können im MADR Format \footnote{\url{https://github.com/adr/madr}} im Code-Repository gefunden werden.
+
+\subsection{Eigene Beispielanwendung}
+Dem \marg{Auswahl Beispielanwendung} Buch \enquote{\citetitle{Richardson2018}}\cite{Richardson2018} liegt eine Beispielanwendung bei\footnote{https://github.com/microservices-patterns/ftgo-application}. Der Autor hat dieses Beispiel für ein Expertenmanual zugedacht. Basierend auf der Komplexität der Beispielanwendung von Richardson, entschied ich, dass es zu umfangreich ist für eine Klassenraum-Übung. Die Beispielanwendung in dieser Arbeit sollte stattdessen drei Services umfassen. Im Vergleich dazu hat die Richardson-Anwendung acht verschiedene Services und zwei produktive \ac{DBMS}.
+
+Ein Ziel dieser Arbeit ist eine einfache Klassenraum-Anwendung, die auf drei Services aufgetrennt wird. Jeder Service muss in eine getrennten Datei-basierte Datenbank schreiben. 
+
+\subsection{Architektur der Applikation}
+Die Kochbuch Applikation soll aus drei unabhängigen Services bestehen:
+
+\begin{itemize}
+    \item Cook Book Applikation
+    \item Purchase List Applikation
+    \item Kitchen Device Applikation
+\end{itemize}
+
+Wobei der \textit{Cook Book} Service die zwei Hintergrundservices (\textit{Purchase List} und \textit{Kitchen Device}) integriert in eine gemeinsame Applikation. 
+
+Die Wahl der Architektur ergab auch die Möglichkeit die folgenden Fragestellungen genauer zu untersuchen.
+
+\begin{enumerate}
+    \item Wie verhaltet sich die Integration der zwei Services auf einem Integrationsserver?
+    \item Welche Schwierigkeiten treten bei einem Integrationsserver auf, der die Integration von externen Ressourcen und eigener URL-Endpunkte beherrschen muss?
+\end{enumerate}
+
+\subsection{Entscheidung über Server Framework}
+
+Für den \marg{ExpressJS} Application Layer sind zwei Optionen als Basis der Applikation zur Verfügung gestanden. Einerseits konnte Javascript mit ExpressJS\footnote{https://expressjs.com/} eingesetzt werden. Dieses Framework kann als Basis für die zukünftige Applikation dienen. Die Erweiterung Loopback\footnote{http://loopback.io/} baut auf dem ExpressJS Framework auf und stellt die REST API zur Verfügung. Das Framework wird an der Hochschule im Modul WED2 unterrichtet.
+
+Die \marg{Spring Framework} Alternative dazu ist das Spring Framework\footnote{https://spring.io/}. Dieses basiert auf der Programmiersprache Java und bietet viele Module an, die wiederkehrenden Code abstrahieren. So ist das Object-Relational Mapping, JSON-Objective Mapping schon durch das Framework gelöst. Der Websiten-Renderer des Frameworks \enquote{Thymeleaf}\footnote{https://www.thymeleaf.org/} ist sehr mächtig und der Websiten-Fragment-Zusammensetzung der Bibliothek erschien mächtig genug für die Portal Komposition (\ref{sec:portalComposition}). Das Framework wird im Modul AppArch unterrichtet, wo die Beispielanwendung in den Übungsbetrieb eingebaut werden kann.
+
+Ich \marg{Entscheidung} habe mich für das Spring Framework entschieden. Das Spring Framework wird im Modul AppArch unterrichtet, die Beispielanwendung kann in den Übungsbetrieb eingebaut werden. Ausserdem ist die Sprache Java die Hauptsprache an der Hochschule.
+
+Die \marg{Implikationen} Komposition der Services wurde durch das Framework sehr gut unterstützt. Im Speziellen haben folgende Spring Technologien die Beispielapplikation vereinfacht.
+
+\begin{description}
+    \item[WebClient] Eine Bibliothek für HTTP RESTful Service-Calls auf JSON Objekten.\footnote{https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html\#webflux-client}
+    \item[Thymeleaf] Einen HTML Renderer, der HTML Dokumente von externen Services einfügen kann. \footnote{https://www.thymeleaf.org/doc/articles/layouts.html\#including-with-markup-selectors}
+    \item[Spring Security] Eine Implementierung von \ac{CORS}
+\end{description}
+

@@ -1,0 +1,55 @@
+\subsection{Projektplan}
+
+Der Projektplan definiert den Ablauf des Projektes und die Dauer der Arbeiten im Projekt.
+
+Unter \ref{tab:Requirements:projectSchedule:Mainactivities} können die Hauptätigkeiten im Projekt entnommen werden. Diese Tätigkeiten habe ich dann unter \ref{fig:Requirements:projectSchedule:Schedule} auf die Wochen verteilt. Die Feinplanung des Projektes habe ich anschliessend mit Microsoft Project\textregistered  davon abgeleitet. Sie ist bewusst iterativ gestaltet, da dies meine bevorzugte Arbeitsform ist um die Haupttext mehrmals zu lesen und zu verbessern. Das File kann im Appendix (\ref{pdf:Appendix:ProjectSchedule}) gefunden werden.
+
+\begin{figure}
+    \centering
+    \begin{ganttchart}[vgrid={{black, dotted}}, hgrid=true,
+    	title/.append style={draw=none, fill=blue},
+    	title label font=\sffamily\bfseries\color{white},
+    	title label node/.append style={below=-1.6ex},
+    	title left shift=.05,
+    	title right shift=-.05,
+    	]{1}{14}
+    	\gantttitle{14 Wochen}{14}\\
+    	\gantttitlelist{1,...,14}{1}\\
+    	\ganttbar[]{Vorbereitung \& Vorstudie}{1}{2}\\
+    	\ganttbar[]{Beispielanwendung}{2}{6} \\
+    	\ganttbar[]{Frontend Komposition}{6}{8} \\
+    	\ganttbar[]{Middleware Komposition}{8}{10} \\
+    	\ganttbar[]{Backend Komposition}{10}{12}\\
+    	\ganttbar[]{Reflexion \& Diskussion}{12}{14}\\
+    	\ganttbar[]{Dokumentation}{10}{14}
+    \end{ganttchart}
+    \caption{Grobaufteilung der Projektzeit}
+    \label{fig:Requirements:projectSchedule:Schedule}
+\end{figure}
+
+\begin{table}
+    \centering
+    \begin{tabularx}{\textwidth}{|Y|X|}
+        \hline
+        Vorbereitung & Aufbau des Projektes mit Projektplan, Aufgabenstellung und Vereinbarung der Sitzungen\\
+        \hline
+        Vorstudie & Vorstudie im Projekt, Vorbereitung der Tätigkeiten\\
+        \hline
+        Implementation Beispielanwendung & Implementieren der Beispielanwendung des Projektes \\
+        \hline
+        Implementation Frontend Komposition & Implementierung des Zusammenfügens im Frontend \\
+        \hline
+        Implementation API Gateway & Implementierung des Zusammenfügens in der Middleware \\
+        \hline
+        Implementation Backend Komposition & Implementierung des Zusammenfügens in der Middleware \\
+        \hline
+        Reflexion und Diskussion & Vergleichen der Vor- und Nachteile der Lösungen \\
+        \hline
+    \end{tabularx}
+    \caption{Hauptätigkeiten im Projekt}
+    \label{tab:Requirements:projectSchedule:Mainactivities}
+\end{table}
+
+Dazu habe ich eine Projekt-Risiko Tabelle erstellt, die die grössten Risiken geordnet nach dem Schweregrad zeigt. Diese Tabelle ist am Anfang angefertigt worden und kontinuierlich aktualisiert worden. Die Tabelle kann im Appendix (\ref{pdf:Appendix:RiskAnalysis.pdf}) gefunden werden.
+
+Wie aus dem Protokoll vom 24. Oktober 2018 genommen werden kann, ist das Risiko \enquote{The API Gateway is unusable / too complex for our project} eingetreten. Der Gateway ist nur unter Docker installierbar. Für unsere Anwendung ist dies nicht akzeptabel. Denn das Projekt muss auch unter Windows ausführbar sein.

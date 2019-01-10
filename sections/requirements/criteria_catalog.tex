@@ -1,0 +1,307 @@
+\section{Kriterienkatalog}
+
+\newcommand{\plus}{$+$}
+\newcommand{\minus}{$-$}
+
+Der Kriterienkatalog zeigt die Aufstellung der Kriterien zur Bewertung der Architekturalternativen. Diese Kriterien erlauben einen qualitativen Vergleich der Architekturen und sollen dem Leser ermöglichen die Vor- und Nachteile der Architekturen zu vergleichen.
+
+Der Kriterienkatalog basiert auf dem Katalog von ISO25010 \cite{ISO25010}. Ich habe die relevantesten Charakteristiken ausgesucht um die Architekturen zu vergleichen. Um die Anzahl der Kriterien weiter zu reduzieren, habe ich verschiedene Kategorien zusammengefasst.
+
+Ein Kriterium beginnt mit dem Grund warum ein Kriterium wichtig ist. Dann wird das Kriterium selber eingeführt und ein guter und unoptimaler Fall angegeben. Um die Fälle vergleichbar zu gestalten wird das Konzept der \enquote{Landing Zones}\cite{LandingZones2011} eingeführt.
+
+\subsection{Migrationsarbeit}
+
+% How cumbersome is the learning phase for the developers? Is it possible to migrate step-by-step or is it a big roll-over? Is there a good migration path?
+
+Das Kriterium \enquote{Migrationsarbeit} untersucht Risiken zu der Überführung in eine Microfrontend-Umgebung. Jedes Entwicklungsteam muss Refactoring vornehmen um die Frontends voneinander zu trennen. Dazu kommt, dass alle Teammitglieder die neuen Programmierungstechniken der Microfrontend-Architektur verstehen müssen.
+
+Das  Team muss die folgenden Kriterien beachten bei dem Übergang zur neuen Architektur:
+
+\begin{itemize}
+    \item Die \textit{Verständnisarbeit} von jedem Entwickler um das Verständnis aufzubauen. Nach der Entscheidung die Architektur zu verändern, braucht jeder Entwickler eine Einführungslektion und Einarbeitungszeit.
+    
+    Gute Dokumentation und ein einfaches Konzept helfen bei dem Verständnis neuer Architektur-Alternativen.
+    
+    \textit{Ausarbeitungszeit des Konzeptes}:  Wie lange brauchte ich das Konzept auszuarbeiten?
+    \begin{itemize}
+        \pro 2 Stunden
+        \con 6 Stunden
+    \end{itemize}
+    
+    \item Die \textit{Umstellungszeit} wird auch dadurch bestimmt, wie lange die Ausarbeitung des Prototyps der neuen Architektur dauert.
+    
+    \textit{Ausarbeitungszeit des Prototyps}:  Wie lange dauert die Ausarbeitung des ersten Prototyps der Architektur-Alternative?
+    \begin{itemize}
+        \pro 2 Stunden
+        \con 6 Stunden
+    \end{itemize}
+    
+    Wie Zeitaufwendig ist die Umstellung bis zum ersten hybriden Prototyp?
+    \item In der \textit{Anlaufszeit} des Entwicklungsteams ist es wahrscheinlich, dass die Entwickler mehr fehlerhaften Code schreiben werden.
+    
+    \textit{Fehler im Code}: Wie viele Fehler hatte ich im Code?
+    \begin{itemize}
+        \pro Weniger als 2 Fehler
+        \con Mehr als 2 Fehler
+    \end{itemize}
+    
+    Ich hatte kein Konzept mit mehr als drei Programmierungsfehler (englisch Bugs). Aus diesem Grund habe ich die Schwelle zwischen einem und zwei Fehler gesetzt.
+    \item In \textit{grösseren Projekten} muss der Übergang schrittweise geschehen. Damit werden grosse Umbrüche in der Produktion verhindert und die daraus resultierenden Probleme.
+    
+    Mit der Anzeige von Teilen der alten Applikation in der neuen Anwendung kann die alte Website Funktion für Funktion abgelöst werden und durch das neue Frontend ersetzt werden.
+    
+    \textit{Schrittweiser Übergang}: Kann eine externe Seite im Micro-Frontend angezeigt werden?
+    \begin{itemize}
+        \pro Ja
+        \con Nein
+    \end{itemize}
+    \item Aus der Forderung für einen schrittweisen Übergang folgt, dass das monolithische Frontend und Microfrontends nebeneinander bestehen müssen. Dies erlaubt einen guten, schrittweisen Migrationspfad.
+    
+    \textit{Schrittweiser Übergang}: Kann die alte Seite übernommen werden und im Aussehen auf die neue Seite angepasst werden?
+    \begin{itemize}
+        \pro Forderungen
+        \begin{itemize}
+            \item Integration von monolithischer Website mit funktionierenden Links und Bildern 
+            \item Nur die notwendigen Teile eines HTML Dokumentes werden übernommen
+            \item Der Style von neuer Seite muss übernommen werden, damit die Nutzererlebnis nicht gestört wird.
+        \end{itemize}
+        \con Nicht alle Forderungen sind erfüllt.
+    \end{itemize}
+\end{itemize}
+
+\begin{table}
+\begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+    Beschreibung & \minus & \plus
+    \\ \hline
+    Wie lange brauchte ich das Konzept auszuarbeiten? & sechs Stunden & zwei Stunden
+    \\ \hline
+    Wie lange dauert die Ausarbeitung des ersten Prototyps der Architektur-Alternative? & sechs Stunden & zwei Stunden
+    \\ \hline
+    Wie viele Fehler hatte ich im Code? & zwei Fehler & ein Fehler und weniger
+    \\ \hline
+    Kann eine externe Seite im Micro-Frontend angezeigt werden? & Nein & Ja
+    \\ \hline
+    Kann die alte Seite übernommen werden und im Aussehen auf die neue Seite angepasst werden? & Nicht alle Forderungen sind erfüllt. & Forderungen sind erfüllt.
+    \\ \hline
+\end{tabularx}
+\caption{Zusammenfassung Kriterien für Migrationsarbeit}
+\end{table}
+
+% Es \marg{Analogie} ist besser die Autofahrer auf eine andere Spuren zu leiten während den Bauarbeiten an der Autobahn, als alle Fahrer auf eine wöchentlich ändernde Umfahrungsstrecke in eine Irrfahrt zu senden.
+
+\subsection{Aktualisierbar in Produktion}
+
+% Is it possible to swap the component in production? Both the micro front-end and the backend must be updatable. No client request must terminate or fail.
+
+Entwicklungsteams sind für einen Service zuständig. In einem Team arbeiten Datenbankadministratoren, Backend- und Frontendentwickler eng zusammen um einen Service weiter zu entwickeln. Diese können Lösungen schneller und in kleineren Intervallen bereitstellen. Die Aktualisierung des  Services muss auch in der Produktion innerhalb von Minuten bis Stunden ablaufen. \cite{microservicemanifesto}
+
+Da es heute viele Werkzeuge in diesem Bereich gibt \cite{ieeeJournal2018}, wird diese Arbeit nicht weiter in die Werkzeuglandschaft eintauchen. Stattdessen, wird die Kompatibilität vom Microfrontend Pattern zu einer solchen Anforderung im Verlauf von diesem Report überprüft.
+
+Das Pattern  muss die folgenden Kriterien beachten:
+\begin{itemize}
+    \item Das Microfrontend muss zusammen mit dem Microservice austauschbar sein. Damit kann garantiert werden, dass bei einer Änderung der Business-Logik, das Frontend bei der nächsten Anfrage aktualisiert wird und es zu keinem Unterbruch des Services kommt weil das Frontend den neuen API-Vertrag nicht kennt.
+    
+    \textit{Unterbrechungsfreie Aktualisierbarkeit}:  Kann das Microfrontend zusammen mit dem Microservice ausgetauscht werden?
+    \begin{itemize}
+        \pro Ja
+        \con Nein
+    \end{itemize}
+    \item Die Aktualisierung sollte so wenige Services wie möglich betreffen. Jeder zusätzlich ausgetauschte Service macht die Aktualisierung komplexer.
+    
+    \textit{Unterbrechungsfreie Aktualisierbarkeit}:  Die Aktualisierung des Frontends darf nur \textit{einen} Service betreffen.
+    \begin{itemize}
+        \pro Ein Service ist betroffen
+        \con Zwei Services sind betroffen
+    \end{itemize}
+\end{itemize}
+
+\begin{table}
+\begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+    Beschreibung & \minus & \plus
+    \\ \hline
+    Kann das Microfrontend zusammen mit dem Microservice ausgetauscht werden? & Nein & Ja
+    \\ \hline
+   Die Aktualisierung des Frontends darf nur \textit{einen} Service betreffen. & Zwei Services & Ein Service
+    \\ \hline
+\end{tabularx}
+\caption{Kriterien für Aktualisierbar in Produktion}
+\end{table}
+
+\subsection{Unabhängigkeit der Services}
+% Are components independent from each other? Is the microfrontend architecture faithful to microservices ideas?
+% Which tools enable the hot swapping process? Does it seamlessly work? How many tools are needed? What happens if the client happens to have old front-end and calls
+% newer application server under the assumption that they are incompatible? 
+
+Die tägliche Entwicklung von grossen, monolithischen Systemen ist langsam. Aus der lange dauernden Bau- und Startzeit wird der Bearbeiten-Bauen-Laufen-Test-Rythmus sehr langsam. Folglich sinkt die Produktivität der Entwickler. \cite{Richardson2018}
+
+Durch die Unabhängigkeit der Services kann der Aktualisierungsprozess einfach gehalten werden. Von einer Datenbank-Aktualisierung darf nur der Service betroffen sein, dem die Datenbank gehört. Bei einer Trennung der Services innerhalb einer monolithischen Anwendung\footnote{\url{https://www.osgi.org/}}, muss der gesamte Prozess ausgetauscht werden.
+
+Wenn Services in einer Microservice Architektur miteinander kommunizieren möchten, dann müssen sie das mit Messages über die öffentliche \ac{API} tun. \cite{Richardson2018} 
+
+Die Unabhängigkeit der Microservices im Applikationschicht darf nicht im Frontend erweicht werden.
+
+Die Unabhängigkeit der Services  muss die folgenden Kriterien beachten:
+\begin{itemize}
+    \item Die Komponenten sollten unabhängig voneinander sein, damit sie ausgetauscht werden können in der Produktion. Die einzige Abhängigkeit der Webserver darf auf Ihre Applikationserver sein.
+    
+    \textit{Unabhängigkeit}:  Ausser der Abhängigkeit auf den Applikationserver dürfen die Webserver keine weitere Verbindungen benötigen.
+    
+    \begin{itemize}
+        \pro Einzige Abhängigkeit ist auf Applikationserver des Microfront-ends.
+        \con Das Frontend besitzt mehr als eine Abhängigkeit. 
+    \end{itemize}
+    
+    \item  Um den Akualisierungsprozess zu ermöglichen muss der Service unabhängig von anderen Services in der Build-Chain verarbeitbar sein.
+    
+    \textit{Unabhängigkeit}:  Der Service darf keine Abhängigkeiten auf andere Services besitzen in der \enquote{Build-Phase}.
+    
+    \begin{itemize}
+        \pro Service ist unabhängig von anderen Services kompilierbar
+        \con Service hat zur \enquote{Build-Zeit} Abhängigkeiten auf andere Services in der Infrastruktur.
+    \end{itemize}
+    
+    \item Die Microservice-Architektur empfiehlt die komplette Trennung der Services. Der Microfrontend-Vorschlag darf diese Trennung nicht erweichen, damit die Vorteile in der Applikationsschicht auch in die Präsentationsschicht übernommen werden können.
+    
+    \textit{Unabhängigkeit}: Die Microfrontend Architektur darf nicht die Unabhängigkeit der Microservices erweichen.
+    \begin{itemize}
+        \pro Die Frontends sind unabhängig.
+        \con Durch Kopplungen im Frontend sind die Microfrontends nicht individuell austauschbar.
+    \end{itemize}
+    
+    \item \textit{Unabhängigkeit}: Services müssen einzeln aktualisierbar sein.
+    \begin{itemize}
+        \pro Ja
+        \con Nein
+    \end{itemize}
+\end{itemize}
+
+% Die Infrastruktur \marg{guter Fall} besitzt unabhängige Services die jederzeit austauschbar sind. Die Frontends werden von den Services selber erstellt und ausgeliefert. Die Kommunikation erfolgt in einem URL-Schema das den Servicename und die Version einbezieht. Damit wird die Kommunikation zum richtigen Service weitergeleitet. Die Frontends kommunizieren nur mit dem eigenen Service.
+
+% Die Infrastruktur \marg{unglücklicher Fall} besitzt unabhängige Services, das Frontend ist ein Monolith der von allen Services geteilt wird. Nachteilig wirkt sich aus, dass das Frontendteam nicht auf die Services aufgeteilt werden kann und somit kein Detailwissen über die Domäne besitzen. Ausserdem, kann ein Service nicht unabhängig ausgetauscht werden, denn der Frontend-Monolith muss dafür auch aktualisiert werden und dies könnte einen Unterbruch in der Verfügbarkeit verursachen. 
+
+\begin{table}
+\begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+    Beschreibung & \minus & \plus
+    \\ \hline
+     Ausser der Abhängigkeit auf den Applicationserver dürfen die Webserver keine weitere Verbindungen benötigen. & Einzige Abhängigkeit ist auf Application-Server des Micro-Frontends. & Einzige Abhängigkeit ist auf Application-Server des Micro-Frontends.
+    \\ \hline
+    Der Service darf keine Abhängigkeiten auf andere Services besitzen in der \enquote{Build-Phase}. & Service hat zur \enquote{Build-Zeit} Abhängigkeiten auf andere Services in der Infrastruktur. &  Service ist unabhängig von anderen Services kompilierbar
+    \\ \hline
+    Die Microfrontend Architektur darf nicht die Unabhängigkeit der Microservices erweichen. & Durch Kopplungen im Frontend sind die Microfrontends nicht individuell austauschbar. & Die Frontends sind unabhängig.
+    \\ \hline
+     Services müssen einzeln aktualisierbar sein. & Nein & Ja
+    \\ \hline
+\end{tabularx}
+\caption{Kriterien für Unabhängigkeit der Services}
+\end{table}
+
+\subsection{Effekt auf die Geschwindigkeit}
+% Time to first Byte describes the time until the first rendering of the page has succeded and the page arrives at the client. This factor will especially important performance measure for backend solutions.
+
+% On the other hand, how long does it take to build a page that is usable for the consumer? I suspect that will be a performance measure for front-end solutions.
+
+Der Nutzer misst die Geschwindigkeit einer Seite vor allem an der Lade\-geschwindigkeit. Für Webunternehmen ist es sehr wichtig, dass die Nutzer kontinurierlich über die Webseite bewegen können und nicht durch Ladebälken gestört werden. Die Ladegechwindigkeit hat verschiedene Messgrössen um diese feiner zu unterteilen:
+\begin{description}
+    \item[Time to first Byte] Zeit die vergeht bis eine Antwort des Servers eintrifft
+    \item[Content Download] Zeit in welcher Netzwerk-Pakete für das File ankommen
+    \item[Rendering] Zeit um die Daten zu interpretieren und die Ansicht zu zeich\-nen
+\end{description}
+
+Die \enquote{Time to first Byte} ist sehr wichtig und normalerweise langsam für Server-Side-Rendering-Lösungen wie Thymeleaf. Bei Frontend-Rendering, wie zum Beispiel Angular, React und anderen Javascript Bibliotheken, ist die \enquote{Time to first Byte} sehr schnell. Diese Lösungen brauchen viel Zeit beim Rendering. Heutzutage wird die zweite Option bevorzugt, denn immerhin bleibt da der Bildschirm nicht leer in der Ladezeit, sondern sieht schnell nach der Webseite aus, auch wenn noch nicht alle Elemente eingetroffen sind.
+
+Aus  diesem Grund, müssen folgende Punkte bei der Geschwindigkeit beachtet werden:
+\begin{itemize}
+    \item \textit{Geschwindigkeit}: Die definierten Zeiten müssen so kurz wie möglich sein
+    \item \textit{Geschwindigkeit}: Der Nutzer muss das Gefühl bekommen, dass die Page schnell lädt
+    \item \textit{Geschwindigkeit}: Für Backend Lösungen muss die Zeit bis zum Ausliefern der Seite besonders beachtet werden
+    \item \textit{Geschwindigkeit}: Für Frontend Rendering muss der Ressourcenverbrauch durch den Seitenrenderer beachtet werden
+\end{itemize}
+
+\begin{table}
+\begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+    Beschreibung & \minus & \plus
+    \\ \hline
+    Die Ladegeschwindigkeit muss so schnell wie möglich sein. & Die Ladegeschwindigkeit ist bedeutsam langsamer als die Alternativen. & Die Geschwindigkeit ist bedeutsam schneller als die Alternativen.
+    \\ \hline
+    Der Nutzer hat das Gefühl einer flüssigen Ladegeschwindigkeit & Das Laden stockt oder der Nutzer muss lange einen Browserladebalken ansehen. & Die Website ist schnell beim Nutzer und braucht kurz zum Seitenaufbau.  
+    \\ \hline
+    Die Zeit zur Auslieferung der Seite (\ac{TTFB}) muss so schnell wie möglich sein. & Die Alternativen sind bedeutend schneller in \ac{TTFB}. & Die Alternativen sind bedeutend langsamer in\ac{TTFB}.
+    \\ \hline
+    Die Zeit zwischen der Auslieferung und dem Fertigstellen des Renderings (Rendering Time) muss so schnell wie möglich sein. & Die Alternativen sind bedeutend schneller in Rendering Time. & Die Alternativen sind bedeutend langsamer in Rendering Time.
+    \\ \hline 
+\end{tabularx}
+
+\caption{Kriterien für Effekt auf die Geschwindigkeit}
+\end{table}
+
+% Ein mobiler Nutzer \marg{guter Fall} meldet sich an einer Webseite an. Währendem die Microservices ihre Microfrontends noch immer über das Netzwerk senden, ist die Skeleton-Seite schon am aufbauen und die Komponenten werden eine nach dem anderen in die Seite geladen, sobald sie vorhanden sind. Somit hat der Nutzer das Gefühl, dass sich etwas bewegt und kann schon im Aufbau Aktionen auslösen.
+
+% Der mobile Nutzer \marg{unglücklicher Fall} meldet sich bei einer anderen Seite an. Die Seite ladet sehr langsam und wird erst angezeigt, wenn alle Bilder heruntergeladen wurden. Dies führt dazu, dass der Nutzer lange Zeit einen leeren Bildschirm ansehen muss. 
+
+\subsection{Theoretische Skalierbarkeit}
+% Is the solution scailable to infinity? Do we have a common state in the backend? Are there proxies which have to bear the entire traffic load?
+
+Weil diese Arbeit in einer Studienarbeit bearbeitet wird, habe ich keine praktische Infrastruktur zum die Skalierbarkeit der Architektur zu testen. Ich kann die Skalierbarkeit ableiten von den Abläufen und den Daten, die zwischen den Kommunikationspartnern gesendet werden.
+
+Die Skalierbarkeit  einer Microservice-Infrastruktur mit Microfrontends muss folgende Punkte beachten:
+\begin{itemize}
+    \item Die Frontend-Server müssen stateless sein um skalierbar auf die Anfragelast zu sein.
+    \item Das System muss dafür ausgelegt sein, dass neue Instanzen zu jeder Zeit hochgefahren werden können
+\end{itemize}
+
+% Alle Services \marg{guter Fall} sind seiteneffektlos. Das Bedeutet, dass alle Instanzen die Daten des Nutzers gleichermassen sehen. Damit ist es nicht relevant, welcher Service die Anfrage des Nutzers bearbeitet. Wenn die Infrastruktur diese Eigenschaft erfüllt, kann auch zu jeder Zeit ein neuer Service hochgefahren werden.
+
+% Ein anderer Service \marg{unglücklicher Fall} hat einen Loginmechanismus, der die eingeloggten Nutzer im Memory speichert. Wegen dieser Lösung müssen alle Anfragen nach dem Login wieder zu diesem Server gesendet werden bis der Nutzer ausloggt. Wenn viele Nutzer auf denselben Server einloggen, können andere Server nicht mithelfen die Anfragen zu bearbeiten, da der Login auf einer einzelnen Instanz beschränkt ist. Die Infrastruktur ist nicht skalierbar.
+
+\begin{table}
+\begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+    Beschreibung & \minus & \plus
+    \\ \hline
+    Die Kommunikation über das HTTP-Protokoll mit dem Applikationsserver muss stateless sein. & Die Applikationsserver haben eine stateless Kommunikation mit dem Frontend & Die Kommunikation mit dem Frontend ist ein stateful Protokoll
+    \\ \hline 
+    Neue Instanzen können im Webserver Tier hochgefahren werden um die Anfragelast zu bewältigen. & Nein & Ja
+    \\ \hline
+    Der Webserver darf keinen State, inklusive keine Session, des Nutzers sepeichern. & Er speichert Sessiondaten & Er ist stateless
+    \\ \hline
+\end{tabularx}
+\caption{Kriterien für theoretische Skalierbarkeit}
+\end{table}
+
+\subsection{Informationssicherheit}
+% How does the pattern compare to others in terms of security? Are there any \ac{CIA} flaws? HTTP specific authentication, authorization and accounting, HTTP against HTTPS
+
+Sicherheit ist ein sehr wichtiger Faktor in der heutigen Zeit. Darum werde ich Faktoren einführen um die Sicherheit von Microfrontend-Lösungen zu vergleichen. Einfache, aber sehr effektiver Sicherheitsgewinn kann durch Verwendung von \ac{TLS} erreicht werden. Mit dieser Technik können auch die Microfrontends vor Veränderungen im Transport geschützt werden.
+
+Bei der Sicherheit von einer Web Applikation müssen folgende Punkte beachtet werden:
+\begin{itemize}
+    \item Die \ac{CIA} von Benutzerdaten muss zu jeder Zeit gewährleistet sein
+    \item Server darf keine Nutzerdaten rendern, wenn der Nutzer authentisiert ist
+    \item Jeder Microservice muss \ac{AAA} betreiben um Informationsdiebstahl zu verhindern
+    \item Sessions müssen über HTTPS gesichert werden
+\end{itemize}
+
+\begin{table}
+    \begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+        Beschreibung & \minus & \plus
+        \\ \hline
+       Die Vertraulichkeit (confidentiality) der Daten muss im Transport sichergestellt werden & Die Daten sind unverschlüsselt im Transport & Die Daten und die Frontends sind durch Verschlüsselung im Transport abgesichert.
+        \\ \hline
+        Die Integrität der Daten muss sichergestellt werden. & Die Daten können von Unbekannten verändert werden  & Die Backends können mit dem Microfrontend \ac{AAA} betreiben.
+        \\ \hline
+         Die Verfügbarkeit (availability) muss zu jeder Zeit sichergestellt sein.  & Software ist nicht sicher oder lässt sich einfach zum Absturz bringen. & Software ist sicher gebaut, sodass sie nicht versehentlich abstürzt.
+        \\ \hline
+        Die Services dürfen keine Daten und keine Frontend-Fragmente ausliefern an unberechtigte, dritte Personen. & Der Service liefert Daten oder Fragmente mit Daten aus & Der Service kann rechtmässige und unrechtmässige Anfragen unterscheiden.
+    \\ \hline
+    \end{tabularx}
+    \caption{Kriterien für Informationssicherheit}
+\end{table}
+
+% Ein Server \marg{guter Fall} verschlüsselt alle Daten vor dem Versenden. Ausserdem hat er einen sicheren Login-Mechanismus implementiert um die Nutzer authentifizieren. Er rendert die Microfrontends nur wenn der Nutzer korrekt eingeloggt ist.
+
+% Auf der \marg{unglücklicher Fall} anderen Seite haben wir einen Microservice der seine Daten und die Session unverschlüsselt versendet. Die Nutzerdaten können dadurch im Transport ausgelesen werden. Der Angreifer kann nicht nur die Nutzerdaten verändern, sondern kann auch die Microfrontends austauschen.

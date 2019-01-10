@@ -1,0 +1,122 @@
+\documentclass{article}
+ 
+\begin{document}        
+    
+\subsection{3. October 2018}
+
+\subsubsection{previous work / decisions taken}
+\begin{itemize}
+    \item 19. Sept 2018: Time sheet, expanded with more iterative schedule
+    \item 26. Sept 2018: I lead the meeting
+    \item 26. Sept 2018: Structure filled in
+    \item 26. Sept 2018: Richardson paper read
+    \item 26. Sept 2018: Prepare criteria catalog
+    \item 26. Sept 2018: Install computer software for project management
+\end{itemize}
+
+\subsubsection{meeting topics}
+\begin{itemize}
+    \item Decisions at last meeting
+    \item Latex section headers, grouping, changes to document structure
+    \item Time sheeting (Microsoft Project), check the updated sheet
+    \item Too ambitious project, maybe scale it a bit down.
+        \begin{itemize}
+            \item Remove provision that it must be a classroom executable. Especially, because I suspect that the implementation is too complex (involves easily to 6 containers) for such a setting. Even in containers, Docker on Windows is such a pain to install, that 2 hours will be over after the installation process.
+            \item I like the comparison with Richardson, maybe better focus on that, then an third implementation.
+        \end{itemize}
+    \item Milestones definition of Done for implementations. I'm unable to define the architecture implementation criteria, I would like to discuss them collaboratively.
+    \item Decide architectures
+    \item I read the documents and have a few questions:
+        \begin{enumerate}
+            \item Richardson, Page 44, 46: Why moves the DBMS from service integrated to an adapter
+            \item Richardson, Page 3: Business logic is separated into functional sub-services: microservices. Does is the business-logic cut inside? I assume yes.
+            \item Richardson, Page 4: The adapters on the outer hexagon, are those microservices, or how can I imagine their function? My assumption: Adapter that adapts data-transfer-objects to the format understood by the external service, like DB, browsers or other services. 
+            \item IEEE, Page 28: Do I have to implement any of those technologies? I assume, I have to less time, therefore no.
+        \end{enumerate}
+    \item New project tools: Team Foundation Server, Share Point, and switch drive as a mirror.
+    \item How to document issues, setbacks?
+    \item Do I need to do a risk analysis table?
+\end{itemize}
+
+\subsubsection{meeting summary}
+\begin{itemize}
+    \item Small errors in the protocol can confuse reader. Please be more careful in writing protocols.
+    \item Tip: First the contents of the work and then the paperwork items, content items usually come in paperwork up again, therefore it's simpler to start there.
+    \item Table of content
+        \begin{itemize}
+            \item Section heading start with capital letter
+            \item Separate requirements in user stories and non functional requirements
+            \item Criteria catalog for selection of microfrontend architectures
+            \item Implementation:
+                \begin{itemize}
+                    \item Composed micro-services
+                    \item Browser composition, edge side includes, webFragments
+                    \item API Gateway
+                \end{itemize}
+            \item Add conclusion chapter
+            \item For section headings use following form: Past participle + noun 
+        \end{itemize}
+    \item Do less spelling errors, because it is disruptive in the reading flow
+    \item Project plan, discussion last week about naming not met by MB \( \rightarrow \) solution: Domain specific language, past participle and has to be accomplishable, short description, just title
+    \item Risk analysis, examples good/bad discussed, good: API Gateway from CA is to complex or fragile, therefore not capable for our needs, specify Propability and impact with low, medium and high.
+    \item Focus myself more on critical tasks and less on unimportant ones
+    \item Perform architectural significance test from week 1
+    \item Clarification, Samples (available in public or private repository), compiles on javac 1.8 or higher. Unittests must pass. Microservices locally different ports, Maven Build, Eclipse IDE, installation instructions needed, no docker necessary
+    \item In documentation no comparison with Richardson
+    \item Research assignment: Read Richardson his Github repository. And 
+    \item Read patterns on Richardson's webpage, two patterns, both composition patterns usable as a starting point
+        \begin{enumerate}
+            \item API-Gateway
+            \item Other his name unknown 
+        \end{enumerate}
+    \item Criteria catalog:
+        \begin{itemize}
+            \item Use pattern it's forces section as reference, see patterns in the conclusion section of Richardson's paper
+        \end{itemize}
+    \item Protocol: Hint, tip with one \textit{p}
+    \item Slim PM + infrastructure, just 15\% of the time
+    \item Separate document for challenges
+    \item Further reading material and architectural alternatives:
+        \begin{enumerate}
+            \item Article given at project ramp up meeting
+            \item Plain JS
+            \item Edge side includes
+            \item WebComponents
+        \end{enumerate}
+    \item Further information regarding the criteria catalog
+        \begin{enumerate}
+            \item Frau Honegger Enterprise Service Bus, Olaf Zimmermann
+            \item Christian Brisig ART, Olaf Zimmermann
+        \end{enumerate}
+    \item Criteria catalog suggestions
+        \begin{enumerate}
+            \item Effect on performance
+            \item Hot-swapping \( \rightarrow \) Updatabillity
+            \item Migration path \( \rightarrow \) Migration effort
+            \item Combine hot swapping and continuous integration process together
+            \item Component independence, \textit{Is the microfrontend architecture faithful to microservices manifesto}
+            \item Security, HTTP's more specific, authentication, authorization, accounting, HTTP against HTTPS 
+            \item Give examples for compliance or non-compliance of the criteria items
+        \end{enumerate}
+\end{itemize}
+
+\subsubsection{decisions taken}
+\begin{itemize}
+    \item We will investigate the following architectures
+        \begin{enumerate}
+            \item Backend composition
+            \item API-Gateway, use the one from CA
+            \item Browser
+        \end{enumerate}
+\end{itemize}
+
+\subsubsection{next steps}
+\begin{itemize}
+    \item Setup 3 Microservices, 1 Frontend on JS basis
+    \item Separate the service API's according to the domain model, steps like Richardson
+    \item API-Gateway pattern from CA
+    \item Architecture implemented, evaluate and write and test with user testing the installation guide
+    \item Update criteria catalog
+\end{itemize}
+
+\end{document}

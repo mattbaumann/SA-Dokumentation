@@ -1,0 +1,92 @@
+\documentclass{article}
+ 
+\begin{document}        
+    
+\subsection{10. October 2018}
+
+\subsubsection{Previous work / Decisions taken}
+\begin{itemize}
+    \item 21. Sept. 2018: CA API gateway, I asked for a trial license
+    \item 21. Sept. 2018: I researched the Book contents and example source, it's very complicated example.
+    \item 03. Oct. 2018: I rewrote the section headings
+    \item 03. Oct. 2018: I rewrote the project task titles
+    \item 03. Oct. 2018: I created a source code repository for the application, added arc42 architecture documentation and https://github.com/adr/madr inside it.
+\end{itemize}
+
+\subsubsection{Meeting topics}
+\begin{itemize}
+    \item CA API gateway, I contacted the firm for a trial license.
+    \item Criteria catalog, I rewrote the criteria catalog, please give me a feedback about the subtopics (introduction, forces, positive example, negative example)
+    \item I rewrote the section headings, but without the suggestion paper. May I do a copy of it and archive the suggestions in my folder?
+    \item Chris Robertson's example source code (FTGO) is too complicated to use. I propose a simpler architecture on the cookbook application.
+    \item I modeled the requirements for the cookbook application. Feedback on the requirement analysis so far.
+    \item We have two different systems, I prefer the the cookbook application, what is your take?
+    \item I reviewed the time I used for different tasks. It feels like I use a long time for project tasks. See Difficulties PDF
+\end{itemize}
+
+\subsubsection{Meeting summary}
+\begin{itemize}
+\item Too many attachments, It's an optional service, that Olaf Zimmermann reviews documents beforehand, it's not mandatory to hand all documents in.
+\item Big topics of each meeting are, first, project progress, second, review documents and take decisions and in the last minutes define next work items.
+\item Tip, I should lay work items down, before I review them.
+\item Usage of CA Product is not mandatory, therefore only use it if it's simple to get, hope to archieve risk mitigation, in case important feature is not available in open source product.
+\item ISA-test for prioritizing tasks is not done
+\item Cook Book is a means to an end, do not over engineer in Software Engineering
+\item Slim SE-artifacts
+\item We decided to use Spring as a backend server
+\item User Stories
+    \begin{itemize}
+        \item Never use uppercase; italic is very useful to emphasize in text
+        \item Do not use synonyms in user stories
+        \item User stories can be consolidated when always same behaviour
+        \item User stories can have references to domain model
+    \end{itemize}
+\item Domain Models need Legend
+\item Criteria catalog
+    \begin{itemize}
+        \item Forces are subtopics
+        \item Tighten the text passages
+        \item Factual definition of the topics
+    \end{itemize}
+\item FTGO application
+    \begin{itemize}
+        \item https://github.com/microservices-patterns/ftgo-application
+        \item FTGO is too complex for examplary application, uses 9 services and many projects for a single service
+    \end{itemize}
+\item Generated requirements with end user
+\item Exemplary application contains following patterns
+    \begin{itemize}
+        \item API Gateway
+        \item Decomposition
+        \item UI Patterns
+        \item Microservices
+    \end{itemize}
+\item Architecture looks good so far, component diagram is needed
+    \begin{itemize}
+        \item Use component diagram
+        \item Class diagram with stereotypes
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Decisions taken}
+\begin{itemize}
+    \item Carry on with commercial CA API Gateway, project target is open source variant
+    \item Self programmed sample, because it is simpler then Robertson's sample application
+    \item Sample application is called "Cook Book"
+    \item Use Spring as a backend, because it's part of lecture. This argument outvoted NodeJS, which is already used in the frontend and would have simplified the dependencies.
+    \item For architecture documentation, I will use component diagram
+    \item H2 in Memory Database will be used as a DBMS.
+\end{itemize}
+
+\subsubsection{Next steps}
+\begin{itemize}
+    \item Fill out ISA-Test
+    \item CA commercial gateway order (time limited on 1h)
+    \item Change naming from "Cooking Book" to "Cook Book"
+    \item Rework User Stories according issues above
+    \item Rework criteria catalog
+    \item Program sample application
+    \item Finish component diagram
+\end{itemize}
+
+\end{document}

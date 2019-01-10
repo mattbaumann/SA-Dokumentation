@@ -3,75 +3,99 @@
 % !TeX spellcheck = en_US
 % !BIB program = biber
 
-\documentclass{scrbook}
-
+\documentclass[]{scrreprt}
 \usepackage{scrlayer-scrpage}
 
+% Basic functionality
 \usepackage{subfiles}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[backend=biber, style=ieee, defernumbers=true]{biblatex} % do not use biber along TexWorks
-\usepackage{csquotes}
-\usepackage{xcolor}
+\usepackage[toc,page]{appendix}
+\usepackage[ngerman]{babel}
 \usepackage{pageslts}
-\usepackage{imakeidx}
-\usepackage{mathtools}
-\usepackage{amsmath, amscd, amssymb, amsfonts, amsthm}
-\usepackage{textcomp}
-\usepackage{txfonts}
-\usepackage{verbatim}
-\usepackage{array}
-\usepackage{environ}
-\usepackage{siunitx}
-\usepackage{tabularx}
-\usepackage{algpseudocode}
-\usepackage{algorithm}
-\usepackage{gensymb}
-\usepackage{listings}
+\usepackage[backend=biber, style=science, defernumbers=true]{biblatex} % do not use biber along TexWorks
 \usepackage{todonotes}
+\usepackage{geometry}
+\usepackage{calc}
+% \usepackage{nameref}
+% \usepackage{environ}
+
+% LATEX Tools
+% \usepackage{verbatim}
+% \usepackage{array}
+
+\usepackage[strict=false, english=american]{csquotes} % german=swiss
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[index=true, cite=first, tooltip=true]{acro}
+\usepackage{tabularx}
+% \usepackage{tabu}
+% \usepackage{algpseudocode}
+% \usepackage{algorithm}
+
+% Package independent 
+\usepackage{mathtools}
+\usepackage{amssymb}
+% \usepackage{amsmath, amscd, amsfonts, amsthm}
+% \usepackage{siunitx}
+% \usepackage{gensymb}
 
 \usepackage{packages/Titlepage}
 \usepackage{packages/DefaultColors}
 \usepackage{packages/HSRColors}
 \usepackage{packages/Links}
 
-\include{sections/protocols/dependencies}
 \include{sections/requirements/packages}
 \include{sections/appendix/packages}
-\include{sections/tables/packages}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Settings
+%%%%%%%%%%%%%%%%%%%%%%%
 \include{settings}
 \include{codelayout}
 
-\addbibresource{references}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Acronyms
+%%%%%%%%%%%%%%%%%%%%%%%
+\acsetup{first-long-format={\itshape}}
+\include{sections/requirements/acronyms}
+\include{sections/methology/acronyms}
+\include{sections/results/acronyms}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Variables
+%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\LogoHSR}{\includegraphics[width=0.25\linewidth]{./assets/hsrlogo}}
 \newcommand{\LogoCompany}{\includegraphics[width=0.25\linewidth]{./assets/ifslogo}}
 
 \title{Micro-Frontends}
-\subject{Term Project}
+\subject{Studienarbeit}
 \author{Matthias Baumann}
-\department{Department of Computer Science\\University of Applied Science Rapperswil}
+\department{Abteilung Informatik\\Fachhochschule Rapperswil}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Set Header & Footer
+%%%%%%%%%%%%%%%%%%%%%%%
 \headerFooterContent
 
 \begin{document}
-
+\frontmatter % sets page counter
 \pagenumbering{roman}
 
 \maketitle
 
-\listoftodos[List of suggested changes]
-\cleardoublepage
+% \listoftodos[List of suggested changes]
 
 \subfile{sections/abstract}
-\clearpage
 
 \tableofcontents
-\cleardoublepage
+\newpage
 
+% \mainmatter % sets page counter
 \pagenumbering{arabic}
-\setcounter{page}{1}
 
 \subfile{sections/management}
 \cleardoublepage
@@ -79,13 +103,8 @@
 \subfile{sections/requirements/main}
 \subfile{sections/methology/main}
 \subfile{sections/results/main}
-\subfile{sections/discussion/main}
 
 \headerFooterAppendix
-
-\subfile{sections/tables/main}
-\subfile{sections/appendix/main}\newpage
+\subfile{sections/appendix/main}
 \subfile{sections/protocols/main}
-
-\cleardoublepage
 \end{document}
